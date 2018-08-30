@@ -43,7 +43,7 @@ provider "azurerm" { }
 
 #Instantiate app module:
 module "acme-app" {
-  source = "github.com/kawsark-git-org/terraform-azure-vmss-packer/modules/app"
+  source = "app.terraform.io/kawsark-git-org/terraform-azure-vmss-module-app"
   
   #Packer related variables:
   packer_resource_group_name = "${var.packer_resource_group_name}"
