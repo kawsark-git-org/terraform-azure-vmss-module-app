@@ -8,5 +8,5 @@ open "http://${app_public_ip}"
 ```
 - A Markdown viewer can be used as below:
 ```
-opem "https://stackedit.io/viewer#!url=${app_public_ip}"
+open "https://stackedit.io/viewer#!url=${app_public_ip}"
 ```
