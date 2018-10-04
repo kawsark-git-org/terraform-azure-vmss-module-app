@@ -43,7 +43,7 @@ provider "azurerm" { }
 
 #Instantiate app module:
 module "acme-app" {
-  source = "app.terraform.io/CI-demo-org/terraform-azure-vmss-module-app"
+  source  = "app.terraform.io/CI-demo-org/vmss-module-app/azure"
   version = "1.2"
 
   #Packer related variables:
