@@ -20,12 +20,12 @@ variable "packer_resource_group_name" {
 
 variable "image_name" {
   description = "The name of OS image to use"
-  default     = "vmss-packer-ubuntu1604-lts"
+  default     = "vmss-packer-100318-jenkins-ubuntu1604-lts"
 }
 
 variable "core_tfe_organization" {
   description = "TFE organization"
-  default = "kawsar-org"
+  default = "CI-demo-org"
 }
 
 variable "core_infrastructure_workspace" {
@@ -43,8 +43,9 @@ provider "azurerm" { }
 
 #Instantiate app module:
 module "acme-app" {
-  source = "app.terraform.io/kawsark-git-org/terraform-azure-vmss-module-app"
-  
+  source = "app.terraform.io/CI-demo-org/terraform-azure-vmss-module-app"
+  version = "1.2"
+
   #Packer related variables:
   packer_resource_group_name = "${var.packer_resource_group_name}"
   image_name = "${var.image_name}"
@@ -55,7 +56,7 @@ module "acme-app" {
 
   #Application Module specific variables:
   location = "${var.location}"
-  app_resource_group_name = "${var.app_resource_group_name}"  
+  app_resource_group_name = "${var.app_resource_group_name}"
 
   tags = {
     environment = "dev"
